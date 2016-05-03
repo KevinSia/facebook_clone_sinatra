@@ -1,0 +1,6 @@
+<h2>Edit status</h2>
+<%= @error_message if @error_message %>
+<form id='edit_status' method='post' action='/statuses/<%= @status.id %>'>
+	<textarea form='edit_status' name='status[content]' maxlength="140" required><%= @status.content %></textarea><br>
+	<input type='submit' value='Post!'>
+</form>

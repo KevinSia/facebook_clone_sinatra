@@ -1,16 +1,38 @@
 <h1>Homepage</h1>
 
-<%= @error_message if @error_message %>
+<% if @error %>
+	<p>Input too long :(</p>
+<% end %>
 <form id='new_status' method='post' action='/statuses/new'>
-	<textarea form='new_status' placeholder='Whats on your mind?' name='status[content]' required></textarea><br>
+	<textarea form='new_status' placeholder='Whats on your mind?' name='status[content]' maxlength="140" required></textarea><br>
 	<input type='submit' value='Post!'>
 </form>
 
 <table>
+	<tr>
+		<th>Content</th>
+		<th>Created at</th>
+		<th>Name</th>
+		<th>Options</th>
+	</tr>
 	<% @statuses.each do |s| %>
 		<tr>
-			<td><%= s.content %></td>
-			<td>owner: <%= s.user.full_name %></td>
+			<td><a href='/statuses/<%= s.id %>'><%= s.content %></a></td>
+			<td><%= s.created_at.strftime("Created at: %m/%d/%Y %I:%M%p" )%></td>
+			<td><%= s.user.full_name %></td>
+				<td>
+					<span>
+					<% if s.liked_by?(current_user) %>
+						<a href="/statuses/<%= s.id %>/unlike">Unlike</a>
+					<% else %>
+						<a href="/statuses/<%= s.id %>/like">Like</a>
+					<% end %>
+					<% if s.user_id == current_user.id %>
+							| <a href="/statuses/<%= s.id %>/edit">Edit</a> |
+							<a href="/statuses/<%= s.id %>/delete">Delete</a>
+					<% end %>
+					</span>
+				</td>
 		</tr>
 	<% end %>
 </table>

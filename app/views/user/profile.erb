@@ -1,4 +1,4 @@
-<h2>Your awesome profile</h2>
+<h2>Awesome profile!!</h2>
 <table>
 	<tr><td>First_name: <%= @user.first_name%></td></tr>
 	<tr><td>Last name: <%= @user.last_name%></td></tr>
@@ -8,14 +8,39 @@
 			<a href="/users/<%= @user.id %>/edit">Edit</a>
 		<% end %>
 	</td></tr>
+	<tr><td><a href="/users/<%= @user.id %>/friends">View <%= @user.first_name %>'s friends</a></td></tr>
 </table>
 
-<h2>Statuses by <%= @user.full_name %></h2>
-<table>
-	<% @statuses.each do |s| %>
-		<tr>
-			<td><%= s.content%></td>
-			<td><%= s.created_at.strftime("Created at: %m/%d/%Y %I:%M%p" )%></td>
-		</tr>
+<% if @user.is_friend?(current_user) %>
+	<% unless @user == current_user %>
+		<a href="/unfriend/<%= @user.id %>">Unfriend <%=  @user.first_name %></a>
 	<% end %>
-</table>
+	<h2>Statuses by <%= @user.full_name %></h2>
+	<table>
+		<tr>
+			<th>Content</th>
+			<th>Created at</th>
+			<th>Options</th>
+		</tr>
+		<% @statuses.each do |s| %>
+			<tr>
+				<td><a href='/statuses/<%= s.id %>'><%= s.content %></a></td>
+				<td><%= s.created_at.strftime("Created at: %m/%d/%Y %I:%M%p" )%></td>
+				<td>
+					<% if s.liked_by?(current_user) %>
+						<a href="/statuses/<%= s.id %>/unlike">Unlike</a>
+					<% else %>
+						<a href="/statuses/<%= s.id %>/like">Like</a>
+					<% end %>
+					<% if s.user_id == current_user.id %>
+							| <a href="/statuses/<%= s.id %>/edit">Edit</a> |
+							<a href="/statuses/<%= s.id %>/delete">Delete</a>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+<% else %>
+	<h2>Ops! You're still not friends with <%= @user.full_name %></h2>
+	<h3>Wanna make friends now? <a href="/friends/<%= @user.id %>/new">OK!</a></h3>
+<% end %>

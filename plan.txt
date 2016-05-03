@@ -64,4 +64,26 @@ models:
 		- belongs_to user ?
 
 
-# user has many friends through friends table
+tasks :
+Users
+	(done)User is able to create an account (sign up)
+	(done)User is able to view their own facebook profile
+	(done)User is able to view other users' profiles
+	(done)User is able to edit only their own profile
+Sessions
+	(done)User is able to log into an account (sign in)
+	(done)User is able to log out from an account (sign out)
+Statuses
+	(done)User is able to (C) CREATE status (140 char max)
+	(done)User is able to (R) VIEW a single status of a followed facebook friend
+	(done)User is able to (R) view all statuses by any followed facebook friend
+	(done)User is able to (U) UPDATE only their own statuses
+	User is able to (D) DELETE only their own statuses
+Likes
+	User is able to (C) CREATE a LIKE on a friend's status
+	User is able to (R) VIEW how many LIKES on a friend's status
+	User is able to UN-LIKE their friend's statuses if user changed his/her mind
+Facebook Friend
+	(done)User is able to add other users as friends
+	(done)User can see list of own facebook friends
+	(done)User can see how many facebook friends your friend has

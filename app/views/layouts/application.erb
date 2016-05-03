@@ -4,17 +4,17 @@
 	</head>
 	<body>
 		<div id='nav_bar'>
-			<h2>Headbook</h2>
+			<h1><a href="/home">Headbook</a></h1>
 			<nav>
 				<% unless logged_in? %>
-					<a href='/login'>Log In</a>
+					<a href='/login'>Log In</a> |
 					<a href='/signup'>Sign Up</a>
 				<% else %>
-					<a href='/'>Home</a>
-					<a href='/profile'><%= current_user.first_name %></a>
-					<a href='/logout'>Log out</a>
-					<a href='/users/index'>Users</a>
-					<a href="/users/<%= current_user.id %>/friends">Your friends</a>
+					<a href='/'>Home</a> |
+					<a href='/users/index'>Users</a> |
+					<a href="/users/<%= current_user.id %>/friends">Your friends</a> |
+					<a href='/logout'>Log out</a> |
+					<a href='/profile'><em><%= current_user.first_name %></em></a>
 				<% end %>
 			</nav>
 		</div>

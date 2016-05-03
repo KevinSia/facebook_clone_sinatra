@@ -7,11 +7,13 @@
 		<th>Option</th>
 	</tr>
 	<% @users.each do |u| %>
+		<% unless u == current_user %>
 		<tr>
 			<td><%= u.first_name %></td>
 			<td><%= u.last_name %></td>
 			<td><%= u.email %></td>
-			<td><a href="#">Add <%= u.first_name %> as a friend</a></td>
+			<td><a href="/friends/<%= u.id %>/new">Add <%= u.first_name %> as a friend</a></td>
 		</tr>
+		<% end %>
 	<% end %>
 </table>

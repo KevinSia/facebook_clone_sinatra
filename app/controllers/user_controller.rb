@@ -5,8 +5,7 @@ end
 # show status feed (friend and current_user)
 get '/home' do
   @statuses = current_user.feed
-  # @error_message = params[:error_message]
-  # params[:error_message] = nil
+  @error = params[:error]
   erb :'user/homepage'
 end
 

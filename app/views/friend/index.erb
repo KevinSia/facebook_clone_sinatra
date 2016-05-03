@@ -1,8 +1,10 @@
+<h2><%= @user.full_name %>'s friends</h2>
 <table>
 	<% @friends.each do |f| %>
 		<tr>
 			<td><%= f.full_name %></td>
 			<td><%= f.email %></td>
+			<td><a href="/users/<%= f.id %>">View Profile</a>
 		</tr>
 	<% end %>
 </table>

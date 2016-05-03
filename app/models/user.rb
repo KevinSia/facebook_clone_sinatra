@@ -43,11 +43,16 @@ class User < ActiveRecord::Base
 
   def feed
     user_ids = friend_ids + friender_ids + [id]
-    Status.where(user_id: user_ids).includes(:user).order(updated_at: :desc)
+    Status.where(user_id: user_ids).includes(:user).order(updated_at: :desc).includes(:likes)
   end
 
   def all_friends
     friends + frienders
+  end
+
+  def is_friend?(user)
+    return true if self == user
+    all_friends.include?(user)
   end
 
 end

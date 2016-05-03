@@ -1,0 +1,20 @@
+<table>
+<tr><td><%= @status.user.full_name %></td></tr>
+<tr><td>Content: <%= @status.content %></td></tr>
+<tr><td><%= @status.created_at.strftime("Created at: %m/%d/%Y %I:%M%p" )%></td></tr>
+<tr>
+	<td>
+		<span>
+			<% if @status.user_id == current_user.id %>
+					<a href="/statuses/<%= @status.id %>/edit">Edit</a> |
+					<a href="/statuses/<%= @status.id %>/delete">Delete</a>
+			<% end %>
+			<% if @status.liked_by?(current_user) %>
+				<a href="/statuses/<%= @status.id %>/unlike">Unlike (<%= @status.likes.count %>)</a>
+			<% else %>
+				<a href="/statuses/<%= @status.id %>/like">Like (<%= @status.likes.count %>)</a>
+			<% end %>
+		</span>
+	</td>
+</tr>
+</table>

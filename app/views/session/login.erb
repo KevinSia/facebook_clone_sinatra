@@ -1,8 +1,9 @@
-<h2>Join Headbook now!</h2>
+<h2>Log into Headbook now!</h2>
 
 <%= @error_message if @error_message %>
 <form method='post' action='/login'>
 	<input type='email' name='user[email]' placeholder='Your email here' required><br>
 	<input type='password' name='password' placeholder='Your password here' required><br>
 	<input type='submit' value='Weeeee!'>
+	<a href="/signup">No account? Sign up for one nao!</a>
 </form>
