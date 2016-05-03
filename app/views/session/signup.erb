@@ -1,0 +1,10 @@
+<h2>Tell us a little about the awesome you!</h2>
+
+<%= @error_message if @error_message %>
+<form method='post' action='/signup'>
+	<input type='text' style='width: 250px;' placeholder='Your lovely first name' name='user[first_name]' required><br>
+	<input type='text' style='width: 250px;' placeholder="Your cute last name" name='user[last_name]' required><br>
+	<input type='email' style='width: 250px;' placeholder='Your sweet email' name='user[email]' required><br>
+	<input type='password' style='width: 250px;' placeholder='And finally your secretive password' name='password' required><br>
+	<input type='submit' value='JOIN NAO!'>
+</form>

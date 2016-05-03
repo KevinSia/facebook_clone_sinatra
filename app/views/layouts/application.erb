@@ -1,9 +1,22 @@
 <html>
 	<head>
-		<title>Facebook Clone</title>
+		<title>Headbook</title>
 	</head>
 	<body>
-
+		<div id='nav_bar'>
+			<h2>Headbook</h2>
+			<nav>
+				<% unless logged_in? %>
+					<a href='/login'>Log In</a>
+					<a href='/signup'>Sign Up</a>
+				<% else %>
+					<a href='/'>Home</a>
+					<a href='/profile'><%= current_user.first_name %></a>
+					<a href='/logout'>Log out</a>
+					<a href='/users'>Users</a>
+				<% end %>
+			</nav>
+		</div>
 		<%= yield %>
 	</body>
 </html>

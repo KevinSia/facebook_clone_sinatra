@@ -31,6 +31,7 @@ group :development, :test do
 	# Adding shotgun for local web hosting
 	gem 'shotgun'
   gem 'byebug'
+  gem 'faker'
 end
 
 group :production do

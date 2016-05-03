@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
     self.password == login_password
   end
 
-  def save_password=(new_password)
+  def save_password(new_password)
     # store hashed password in db
     @password = Password.create(new_password)
     self.password_digest = @password

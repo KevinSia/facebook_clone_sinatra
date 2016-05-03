@@ -1,33 +1,33 @@
 migration:
-- users table :
+- users table (done):
 	- email, string, null: false, unique: true
 	-	password_digest, string, null: false
 	- first_name, string, null: false
 	- last_name, string, null: false
 
 
-- statues table:
+- statues table (done):
 	- content, string, limit: 140, null: false
 	- user_id, references, null: false
 	- add_index -> user_id
 
-- likes table:
+- likes table (done):
 	- status_id, references, null: false
 	- user_id, references, null: false
 	- add_index, [status_id, user_id], unique: true
 
-(to be done later)
+***(to be done later)
 - relationships table:
 	- user_id, references, null: false
 	- friend_id, integer, null: false
 	- add_index, [user_id, friend_id], unique: true
 
-- gems and require in init
+- gems and require in init (done)
 	- bcrypt
 	- byebug
 
 models:
-	- user
+	- user (done)
 		- methods
 			- password (to create password object)
 			- authenticate
@@ -41,7 +41,7 @@ models:
 			- has_many statuses
 			- has_many friends
 
-	- status
+	- status (done)
 		- methods
 			- none
 		- validations
@@ -50,7 +50,7 @@ models:
 			- belongs_to user
 			- has_many likes
 
-	- like
+	- like (done)
 		- methods
 			- none
 		- validations
@@ -59,5 +59,8 @@ models:
 			- belongs_to user
 			- belongs_to status
 
-	- relationship (to be added later)
+	***(to be added later)
+	- relationship
 		- belongs_to user ?
+
+
