@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   # user id on friend_id column
   has_many :frienderships, class_name: 'Friendship', foreign_key: 'friend_id'
-  has_many :frienders, through: :friendships, source: :user
+  has_many :frienders, through: :frienderships, source: :user
 
   # libraries
   include BCrypt
@@ -43,6 +43,11 @@ class User < ActiveRecord::Base
 
   def feed
     user_ids = friend_ids + friender_ids + [id]
-    Status.where(user_id: user_ids)
+    Status.where(user_id: user_ids).includes(:user).order(updated_at: :desc)
   end
+
+  def all_friends
+    friends + frienders
+  end
+
 end

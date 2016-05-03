@@ -2,9 +2,20 @@
 <table>
 	<tr><td>First_name: <%= @user.first_name%></td></tr>
 	<tr><td>Last name: <%= @user.last_name%></td></tr>
+	<tr><td>Email: <%= @user.email%></td></tr>
 	<tr><td>
 		<% if current_user.id == @user.id %>
 			<a href="/users/<%= @user.id %>/edit">Edit</a>
 		<% end %>
 	</td></tr>
+</table>
+
+<h2>Statuses by <%= @user.full_name %></h2>
+<table>
+	<% @statuses.each do |s| %>
+		<tr>
+			<td><%= s.content%></td>
+			<td><%= s.created_at.strftime("Created at: %m/%d/%Y %I:%M%p" )%></td>
+		</tr>
+	<% end %>
 </table>

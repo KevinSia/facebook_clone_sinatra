@@ -1,0 +1,9 @@
+<h2>Statuses by <%= @user.full_name %></h2>
+<table>
+	<% @statuses.each do |s| %>
+		<tr>
+			<td><%= s.content%></td>
+			<td><%= s.created_at.strftime("Created at: %m/%d/%Y %I:%M%p" )%></td>
+		</tr>
+	<% end %>
+</table>

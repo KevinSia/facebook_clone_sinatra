@@ -13,7 +13,8 @@
 					<a href='/'>Home</a>
 					<a href='/profile'><%= current_user.first_name %></a>
 					<a href='/logout'>Log out</a>
-					<a href='/users'>Users</a>
+					<a href='/users/index'>Users</a>
+					<a href="/users/<%= current_user.id %>/friends">Your friends</a>
 				<% end %>
 			</nav>
 		</div>

@@ -1,5 +1,11 @@
 <h1>Homepage</h1>
 
+<%= @error_message if @error_message %>
+<form id='new_status' method='post' action='/statuses/new'>
+	<textarea form='new_status' placeholder='Whats on your mind?' name='status[content]' required></textarea><br>
+	<input type='submit' value='Post!'>
+</form>
+
 <table>
 	<% @statuses.each do |s| %>
 		<tr>

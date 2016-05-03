@@ -1,0 +1,8 @@
+<table>
+	<% @friends.each do |f| %>
+		<tr>
+			<td><%= f.full_name %></td>
+			<td><%= f.email %></td>
+		</tr>
+	<% end %>
+</table>

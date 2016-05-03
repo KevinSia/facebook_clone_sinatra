@@ -5,18 +5,26 @@ end
 # show status feed (friend and current_user)
 get '/home' do
   @statuses = current_user.feed
+  # @error_message = params[:error_message]
+  # params[:error_message] = nil
   erb :'user/homepage'
 end
 
+get '/users/index' do
+  @users = User.all
+  erb :'user/index'
+end
 # show current_user profile
 get '/profile' do
   @user = current_user
+  @statuses = @user.statuses
   erb :'user/profile'
 end
 
 # show a user's profile
 get '/users/:id' do
   @user = User.find(params[:id])
+  @statuses = @user.statuses
   erb :'user/profile'
 end
 
