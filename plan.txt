@@ -17,8 +17,47 @@ migration:
 	- add_index, [status_id, user_id], unique: true
 
 (to be done later)
-- friends table:
+- relationships table:
 	- user_id, references, null: false
 	- friend_id, integer, null: false
 	- add_index, [user_id, friend_id], unique: true
 
+- gems and require in init
+	- bcrypt
+	- byebug
+
+models:
+	- user
+		- methods
+			- password (to create password object)
+			- authenticate
+			- full_name
+		- validations
+			- email: format, uniqueness, presence
+			- password: length, presence
+			- first_name: presence
+			- last_name: presence
+		- associations
+			- has_many statuses
+			- has_many friends
+
+	- status
+		- methods
+			- none
+		- validations
+			- content: length(maximum: 140), presence
+		- associations
+			- belongs_to user
+			- has_many likes
+
+	- like
+		- methods
+			- none
+		- validations
+			- status_id, uniqueness(scope: user_id)
+		- associations
+			- belongs_to user
+			- belongs_to status
+
+	- relationship (to be added later)
+		- belongs_to user ?
