@@ -64,3 +64,4 @@ models:
 		- belongs_to user ?
 
 
+# user has many friends through friends table

@@ -5,14 +5,6 @@ before do
   redirect to '/login'
 end
 
-get '/' do
-  if logged_in?
-    redirect to '/home'
- else
-    erb :'session/login'
-  end
-end
-
 get '/login' do
   erb :'session/login'
 end

@@ -1,1 +1,10 @@
 <h1>Homepage</h1>
+
+<table>
+	<% @statuses.each do |s| %>
+		<tr>
+			<td><%= s.content %></td>
+			<td>owner: <%= s.user.full_name %></td>
+		</tr>
+	<% end %>
+</table>

@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
   # associations
   has_many :statuses, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  # user id on user_id column
+  has_many :friendships
+  has_many :friends, through: :friendships # will find association called (:friends) in friendship model
+
+  # user id on friend_id column
+  has_many :frienderships, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :frienders, through: :friendships, source: :user
 
   # libraries
   include BCrypt
@@ -33,4 +41,8 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def feed
+    user_ids = friend_ids + friender_ids + [id]
+    Status.where(user_id: user_ids)
+  end
 end

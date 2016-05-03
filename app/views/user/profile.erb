@@ -1,0 +1,10 @@
+<h2>Your awesome profile</h2>
+<table>
+	<tr><td>First_name: <%= @user.first_name%></td></tr>
+	<tr><td>Last name: <%= @user.last_name%></td></tr>
+	<tr><td>
+		<% if current_user.id == @user.id %>
+			<a href="/users/<%= @user.id %>/edit">Edit</a>
+		<% end %>
+	</td></tr>
+</table>
