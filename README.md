@@ -32,5 +32,3 @@ This is a facebook-clone I made with Sinatra framework in NEXT Academy. It consi
 2. User can see list of own facebook friends
 3. User can see how many facebook friends your friend has
 
-
-# Good Luck!
