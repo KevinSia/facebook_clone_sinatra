@@ -1,30 +1,6 @@
 
 # Facebook Sinatra Assessment
-This is a question repo for testing your web server understanding related to Ruby. You'll be building a clone of Facebook, focusing on the backend server application. The goal of the assessment is to test your understanding of Active Record, Active Record Relationships and Associations, RESTFUL Routes and MVC through the use of the Sinatra framework, and thus the usage of Active Record, RESTFUL Routes and MVC is a **requirement**.
-
-# Duration
-5.5 hours. Cut off time is 4pm. *Of course you can order delivery/get someone to takeaway lunch to earn extra hour...
-
-# What You Will Need to Do
-1. First, fork this repository and `git clone` it to your local machine.
-2. Wireframe and design your database structure.
-3. Start coding!
-4. Commit your code as often as possible into your own forked repository.
- - git add .
- - git commit -m "login feature is added"  (for example, commit message according to added feature)
- - git push origin master.
-5. Once done, inform a mentor about your completion, slack us your github repo address.
-6. Demo your app and walk the mentor through your code to show an understanding of the concepts.
-
-# Tips
-It is advisable to:
-1. Not spend too much time beautifying the app at the moment; focus on delivering a functional app within the given timeframe.
-2. Work on app requirements from top to bottom, as the difficulty increases in top-down design.
-
-# Requirements
-Your app has to be a working app, with the capabilities as listed below:
-
-
+This is a facebook-clone I made with Sinatra framework in NEXT Academy. It consists of the following features:
 ### Users
 1. User is able to create an account (sign up)
 2. User is able to view their own facebook profile
